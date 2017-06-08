@@ -1,0 +1,40 @@
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="myModal-Editar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" align="center" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+
+        <form name="formEdiTasks">
+
+          <md-input-container class="name-task">
+            <label>Name Task</label>
+            <input ng-model="seleTask.Taskname" name="seTaskname" required ng-maxlength="25" ng-minlength="3">
+              <span class="valid-filds" ng-show="formEdiTasks.seTaskname.$dirty && formEdiTasks.seTaskname.$error.required">Required field</span>
+              <span class="valid-filds" ng-show="formEdiTasks.seTaskname.$error.maxlength">Maximum 25 characters</span>
+              <span class="valid-filds" ng-show="formEdiTasks.seTaskname.$error.minlength">At least 3 characters</span>
+          </md-input-container>
+
+          <select-edit-color></select-edit-color>
+
+          <md-input-container class="charge-task">
+            <label>Charge Of Task</label>
+            <input ng-model="seleTask.chargeOfTask" name="seCharOfTask" required ng-maxlength="25" ng-minlength="3">
+              <span class="valid-filds" ng-show="formEdiTasks.seCharOfTask.$dirty && formEdiTasks.seCharOfTask.$error.required">Required field</span>
+              <span class="valid-filds" ng-show="formEdiTasks.seCharOfTask.$error.maxlength">Maximum 25 characters</span>
+              <span class="valid-filds" ng-show="formEdiTasks.seCharOfTask.$error.minlength">At least 3 characters</span>
+          </md-input-container>
+
+          <div class="modal-footer">
+            <md-button class="md-raised md-whiteframe-1dp" data-dismiss="modal">Close</md-button>
+            <md-button class="md-raised md-primary md-whiteframe-1dp" type="sutmit" data-dismiss="modal" ng-disabled="formEdiTasks.$invalid" ng-click="updaTask()" ng-model="addTask">Save</md-button>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

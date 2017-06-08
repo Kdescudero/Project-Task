@@ -1,0 +1,37 @@
+<md-toolbar class="header md-whiteframe-4dp">
+
+  <input type="text" class="search" ng-model="search.chargeOfTask">
+  <span class="Search"><i class="material-icons iconSearch">search</i></span>
+  <h4 align="center" class="title-header">Task</h4>
+  <button type="button" class="btnAdd md-whiteframe-1dp" data-toggle="modal" data-target="#myModal"><i class="material-icons">add</i></button>
+  <button type="button" class="btnDelete md-whiteframe-1dp" ng-click="deleAllCheck()"><i class="material-icons">delete_forever</i></button>
+
+</md-toolbar>
+
+<div class="wrapper">
+  <div class="conteiner md-whiteframe-2dp" ng-repeat="task in tasks | filter:search"  style="background-color:{{task.Colorcontainer}}">
+
+    <svg-circle></svg-circle>
+    <h4 class="title-task">{{task.chargeOfTask}}</h4>
+    <md-checkbox class="chek-task" ng-click="checkFact($index)" ng-model="task.fact" style="background-color:{{task.Colorcontainer}}" aria-label="Checkbox"></md-checkbox>
+
+    <div class="task md-whiteframe-3dp">
+        <h5 class="title-chargeOfTask" align="center">{{task.Taskname}}</h5>
+        <img ng-src="./dist/img/{{task.img}}.jpg" class="img md-whiteframe-2dp">
+        <button type="button" class="btn-Delete fact-{{task.fact}}" ng-click="delete($index)"><i class="material-icons icons-size">delete</i></button>
+        <button type="button" class="btn-Edit fact-{{task.fact}}" ng-click="selecTask(task,$index)" data-toggle="modal" data-target="#myModal-Editar"><i class="material-icons icons-size">edit</i></button>
+
+        <div class="monDate">
+            <span class="Date">{{task.monDate}}</span>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+<messag-exit></messag-exit>
+<messag-edit></messag-edit>
+<messag-delete></messag-delete>
+
+<!-- directive: modal-add -->
+<!-- directive: modal-edit -->

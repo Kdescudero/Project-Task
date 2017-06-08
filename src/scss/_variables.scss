@@ -1,0 +1,270 @@
+/*********************************************
+             Variables locales
+**********************************************/
+$reset: 0;  
+$transition-alert: all 1s ease;
+
+/**********************************************
+                    Colores
+***********************************************/
+$alertExit: #61B835;
+$alertDelet: #FE6347;
+$alertWarnig: #ff8000;
+$white: white;
+$monDate: #8BD17B;
+$color-header: #5A8FB4;
+$color-icon-alert: #55a22f;
+$color-icon-alert-delete: #d10000;
+
+/**********************************************
+                    Funtes
+***********************************************/
+$font-material-desing: 'Roboto', sans-serif;
+$font-title-header: 'Grand Hotel', cursive;
+
+/*********************************************
+               Variables generales
+**********************************************/
+$tablet: "(max-width: 768px)";
+$mobile-L: "(max-width: 484px)";
+$mobile-M: "(max-width: 376px)";
+
+/********************************************* 
+          Importación de librerias
+**********************************************/
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Grand+Hotel');
+
+/*********************************************
+                 @mixins
+**********************************************/
+
+/* @Mixin para resetear DOM */
+
+@mixin module{
+  html{ margin:0;padding:0;box-sizing: border-box; }
+  *, *:before, *:after { box-sizing: inherit; }
+  img { box-sizing: content-box; }
+}
+
+/*Mixin para limpiar los float*/
+
+@mixin clearfix{
+  &::after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin tablet{
+    @media #{$tablet}{
+      @content;
+    }
+}
+
+@mixin mobile-L{
+  @media #{$mobile-L}{
+    @content;
+  }
+}
+
+@mixin mobile-M{
+  @media #{$mobile-M}{
+    @content;
+  }
+}
+
+@mixin clearFocus{
+  input[type='color']:focus{
+    outline: none;
+  }
+  input[type='color']{
+    display: none;
+  }
+  input[type='text']:focus{
+    outline: none;
+  }
+
+  input[type='text'].inputColor{
+    display: none;
+  }
+
+  input[type='checkbox']{
+    display: none;
+  }
+
+  button[type="button"]:focus{
+    outline: none;
+  }
+}
+
+@mixin ngIf{
+  .ng-if{
+   transition: $transition-alert;
+  }
+  .alertExit.ng-enter,
+  .alertExit.ng-leave.ng-leave-active{
+    transition: $transition-alert;
+    transform: translateX(100em);
+  }
+
+  .alertExit.ng-leave,
+  .alertExit.ng-enter.ng-enter-active{
+    transition: $transition-alert;
+    transform: translateX(0em);
+  }
+
+  .alertDelete.ng-enter,
+  .alertDelete.ng-leave.ng-leave-active{
+    transition: $transition-alert;
+    transform: translateX(45em);
+  }
+
+  .alertDelete.ng-leave,
+  .alertDelete.ng-enter.ng-enter-active{
+    transition: $transition-alert;
+    transform: translateX(0em);
+  }
+}
+
+
+@mixin alertsExit{
+   .alertExit{
+      position: fixed;
+      width: 23vw;
+      height: 14vh;
+      bottom: 34px;
+      right: 0;
+      background-color: $alertExit;
+      border-radius: 3px 0px 0px 3px;
+      color: $white;
+      transition: $transition-alert;
+      z-index: 4;
+
+      .title-alert{
+        position: absolute;
+        top: 35px;
+        left: 3px;
+        font-size: 14px;
+      }
+
+      @include tablet{
+        width: 39vw;
+        right: 0;
+        transition: $transition-alert;
+      }
+
+      @include mobile-L{
+        width: 71vw;
+        right: 0;
+        transition: $transition-alert;
+      }
+   }
+}
+
+@mixin alerExit{
+  @include alertsExit;
+  @include ngIf;
+  .title-alert:after{
+    position: absolute;
+    font-family: 'Material Icons';
+    content: "add_circle_outline";
+    font-size: 92px;
+    left: 203px;
+    top: -57px;
+    color: $color-icon-alert;
+    @include tablet{
+      font-size: 84px;
+      left: 216px;
+      top: -57px;
+    }
+  }
+}
+
+@mixin alerEdit{
+  @include alertsExit;
+  @include ngIf;
+  .title-alert-Edit{
+    position: absolute;
+    top: 35px;
+    left: 15px;
+    font-size: 14px;
+    &:after{
+      position: absolute;
+      font-family: 'Material Icons';
+      content: "edit";
+      font-size: 92px;
+      left: 189px;
+      top: -57px;
+      color: $color-icon-alert;
+      @include tablet{
+        font-size: 85px;
+        left: 202px;
+        top: -58px;
+      }
+    }
+  } 
+}
+
+@mixin alertDelete{
+  @include ngIf;
+  .alertDelete{
+    position: fixed;
+    width: 23vw;
+    height: 14vh;
+    bottom: 34px;
+    right: 0;
+    background-color: red;
+    border-radius: 3px 0px 0px 3px;
+    color: $white;
+    transition: $transition-alert;
+    z-index: 4;
+    @include tablet{
+      width: 38vw;
+    }
+    @include mobile-L{
+      width: 71vw;
+    }
+  
+    .title-alert-delete{
+      position: absolute;
+      top: 35px;
+      left: 15px;
+      font-size: 14px;
+
+      &:after{
+        position: absolute;
+        font-family: 'Material Icons';
+        content: "close";
+        font-size: 92px;
+        left: 189px;
+        top: -57px;
+        color: $color-icon-alert-delete;
+        @include tablet{
+          top: -61px;
+        }
+      }
+    }
+  }
+}
+
+/**********************************************
+                     @Funciones
+***********************************************/
+
+// $color: (red, blue, orange);
+
+// @for $i from 1 through length($color){
+//   .color-#{$i}{
+//     color: lighten(nth($color,$i),+1);
+//   }
+// }
+
+
+h1,h2,h3,h4,h5,h6{
+  margin: $reset;
+}  
+
+body,#wrapper-page{background-color: #5A8FB4};
+#wrapper-page{padding-bottom: 25px;};

@@ -1,0 +1,445 @@
+@import './scss/_variables';
+@include module;
+@include alerExit;
+@include alertDelete;
+@include alerEdit;
+@include clearFocus;
+
+md-toolbar.header{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+	grid-gap: 10px;
+  background-color: #1F6C9D;
+  @include tablet{
+    height: 12vh;
+  }
+  @include mobile-L{
+    height: 18vh;
+  }
+
+  .search{
+    position: relative;
+    height: 6vh;
+    width: 19vw;
+    left: 25px;
+    top: 13px;
+    color: $white;
+    background-color: $color-header;
+    border-radius: 2px;
+    border: none;
+    font-size: 18px;
+    padding-top: 9px;
+    padding-left: 9px;
+    @include tablet {
+      left: 19px;
+      width: 24vw;
+      top: 18px;
+    }
+
+    @include mobile-L{
+      position: absolute;
+      width: 89vw;
+      left: 8px;
+      top: 60px;
+    }
+  }
+
+    span.Search{
+      position: absolute;
+      left: 20%;
+      top: 13px;
+      border-left: none;
+      border-radius: 2px;
+      height: 37px;
+      width: 33px;
+      background-color: $color-header;
+      @include tablet{
+        left: 26%;
+        top: 18px;
+        height: 32.7px;
+        width: 35px;
+      }
+      @include mobile-L{
+        left: 90%;
+        top: 60px;
+      }
+      @include mobile-M{
+        left: 88.5%;
+      }
+    }
+
+    i.iconSearch{
+      top: 6px;
+      position: absolute;
+      transform: rotate(90deg);
+    }
+    .title-header{
+      position: relative;
+      top: 0;
+      left: 12%;
+      padding-top: 9px;
+      font-family: $font-title-header;
+      font-size: 4vw;
+      @include tablet{
+        left: 10%;
+        font-size: 7vw;
+      }
+      @include mobile-L{
+        left: 3%;
+        top: -3px;
+        font-size: 11vw; 
+      }
+    }
+    .btnAdd,.btnDelete{  
+      position: relative;
+      width: 4vw;
+      height: 7vh;
+      top: 10px;
+      left: 33%;
+      padding: 10px;
+      background-color: $color-header;
+      border: none;
+      border-radius: 6px;
+      @include tablet{
+        width: 6vw;
+        left: 23%;
+        top: 16px;
+        padding: 7px;
+      }
+      @include mobile-L{
+        width: 9vw;
+        left: 49%;
+        top: 10px;
+      }
+      @include mobile-M{
+        width: 10vw;
+      }
+    }
+
+    .btnDelete{
+      left: 15%;
+      @include tablet{
+        left: 11%;
+      }
+      @include mobile-L{
+        left: 35%;
+      }
+    }
+}
+
+.wrapper{
+  margin: 2em 6%;
+  width: 91vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  @include tablet{
+    margin: 2em 13px;
+    width: 77vw;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include mobile-L{
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .conteiner{
+    position: relative;
+    width: 24vw;
+    height: 31vh;
+    padding: 11px;
+    background-color: #E2E4E6;
+    @include tablet{
+      width: 46vw;
+    }
+    @include mobile-L{
+      width: 83vw;
+      left: 5%;
+    }
+
+    .task{
+      position: absolute;
+      width: 22vw;
+      height: 22vh;
+      top: 40px;
+      right: $reset;
+      left: 4%;
+      margin-left: 1px;
+      background-color: #FFFFFF;
+      @include tablet{
+        width: 44vw;
+        left: 2%;
+      }
+      @include mobile-L{
+        width: 79vw;
+      }
+
+
+       .btn-Delete,.btn-Edit{
+        position: absolute;
+        border: none;
+        background: transparent;
+        color: #B9B9B9;
+        bottom: 2px;
+        padding: 0;
+        bottom: -1px;
+        z-index: 1;
+      }
+      .btn-Delete{
+        left: 71%;
+        transition: .5s ease;
+        @include tablet{
+          left: 79%;
+        }
+      }
+
+      .btn-Edit{
+        left: 63%;
+        transition: .5s ease;
+        @include tablet{
+          left: 72%
+        }
+      }
+
+      button.btn-Edit.fact-true{
+        opacity: 0;
+        transition: .5s ease;
+      }
+
+      button.btn-Delete.fact-true{
+        color: black;
+        transition: .5s ease;
+      }
+
+      .title-chargeOfTask{
+        position: relative;
+        top: 22%;
+        font-size: 3vw;
+        font-family: $font-material-desing;
+        @include mobile-L{
+          top: 16%;
+          font-size: 9vw;
+        }
+      }
+    }
+
+    .title-task{
+      position: absolute;
+      top: 8px;
+      font-family: $font-material-desing;
+      font-size: 23px;
+      color: #fff;
+    }
+
+    .chek-task{
+      position: absolute;
+      width: $reset;
+      height: $reset;
+      bottom: $reset;
+      top: 12px;
+      right: 14px;
+      z-index: 2;
+    }
+
+    .img{
+      position: absolute;
+      right: 3px;
+      bottom: 3px;
+      width: 4vw;
+      height: 7vh;
+      border-radius: 3px;
+      @include tablet{
+        width: 5vw;
+      }
+      @include mobile-L{
+        width: 9vw;
+      }
+    }
+
+    .monDate{
+      position: absolute;
+      bottom: 3px;
+      left: 3px;
+      width: 6em;
+      border-radius: 2px;
+      color: #B9B9B9;
+      transition: .3s ease;
+      &::before{
+        position: absolute;
+        font-family: 'Material Icons';
+        content: "date_range";
+        left: 6px;
+        font-size: 18px;
+        bottom: -1px;
+      }
+      .Date{
+        position: relative;
+        left: 37%; 
+      }
+    }
+  }
+}
+
+md-checkbox.md-default-theme.md-checked .md-ink-ripple, md-checkbox.md-checked .md-ink-ripple{
+  color: transparent;
+}
+
+md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-icon{
+  background-color: transparent; 
+}
+
+.divPiker{
+  width: 8vw;
+  height: 15vh;
+  border-radius: 6px;
+  position: relative;
+  left: 69%;
+  bottom: 8px;
+  opacity: 0;
+  transition: .4s ease;
+  background-color: #E5E5E5;
+  @include tablet{
+    width: 13vw;
+  }
+  @include mobile-L{
+    width: 24vw;
+    left: 34%;
+    bottom: -45px;
+  }
+  @include mobile-M{
+    width: 26.5vw;
+  }
+
+  ngjs-color-picker ul{
+    position: relative;
+    left: 11px;
+    top: 17px;
+    pointer-events: none;
+    @include tablet{
+      top: 13px;
+    }
+    @include mobile-L{
+      top: 13px;
+    }
+  }
+
+  .triangulo{
+    position: absolute;
+    left: 36px;
+    bottom: 88px;
+    width: 0;
+    height: 0;
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+    border-bottom: 15px solid #E5E5E5;
+    @include tablet{
+      bottom: 81px;
+    }
+  }
+
+}
+
+.divPike{
+  opacity: 1;
+  &  ngjs-color-picker ul{
+    pointer-events: visible;
+  }
+}
+
+md-input-container.name-task{
+  display: inline-block;
+  position: relative;
+  padding: 2px;
+  margin: 15px 23px 0px 20px;
+  width: 42%;
+  @include mobile-L{
+    left: -12px;
+  }
+}
+
+md-input-container.charge-task{
+  display: inline-block;
+  position: relative;
+  top: -47px;
+  padding: 2px;
+  margin: 0 23px 12px 20px;
+  width: 42%;
+  @include mobile-L{
+    top: -141px;
+    left: 51%;
+  }
+}
+
+.selecColor{
+  font-family: $font-material-desing;
+  position: absolute;
+  right: 13%;
+  top: 41px;
+  &:focus{
+    outline: none;
+  }
+  @include mobile-L{
+    right: 30%;
+    top: 100px;
+  }
+}
+
+.icon-selectColor{
+  position: absolute;
+  right: -24%;
+  top: -8px;
+  font-size: 34px;
+}
+
+.modal-footer{
+  position: relative;
+  left: -15px;
+  width: 105%;
+}
+
+.icons-size{
+  font-size: 19px;
+}
+
+
+.divSvg{
+  position: relative;
+  z-index: 1;
+  top: -11px;
+  left: -11px;
+  height: 31vh;
+  width: 24vw;
+  svg{
+    width: 100%;
+    height: 100%;
+    transition: .4s linear;
+    @include tablet{
+      width: 64.5vh;
+    }
+    @include mobile-M{
+      width: 56.5vh;
+    }
+  }
+  circle{
+    cx: 22vw;
+    cy: 21px;
+    r: 0vh;
+    transition: .4s linear;
+    fill-opacity: 0.4;
+    @include tablet{
+      cx: 40vw;
+    }
+  }
+}
+
+.fact-true circle{
+  r: 54vh;
+  transition: .4s linear;
+  fill-opacity: 0.6;
+  @include tablet{
+    r: 63vh;
+  }
+}
+
+.valid-filds{
+  color: red;
+}

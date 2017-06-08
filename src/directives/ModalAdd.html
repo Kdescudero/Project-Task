@@ -1,0 +1,41 @@
+<div class="modal fade" data-backdrop="static" data-keyboard="false"  id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" align="center" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+
+        <form name="formAddTasks" novalidate>
+
+          <md-input-container class="name-task">
+            <label>Name Task</label>
+            <input ng-model="Taskname" name="Taskname" required ng-maxlength="25" ng-minlength="3">
+              <span class="valid-filds" ng-show="formAddTasks.Taskname.$dirty && formAddTasks.Taskname.$error.required">Required field</span>
+              <span class="valid-filds" ng-show="formAddTasks.Taskname.$error.maxlength">Maximum 25 characters</span>
+              <span class="valid-filds" ng-show="formAddTasks.Taskname.$error.minlength">At least 3 characters</span>
+          </md-input-container>
+          
+          <select-color></select-color>
+
+          <md-input-container class="charge-task">
+            <label>Charge Of Task</label>
+            <input ng-model="chargeOfTask" name="chargeOfTask" required ng-maxlength="25" ng-minlength="3">
+              <span class="valid-filds" ng-show="formAddTasks.chargeOfTask.$dirty && formAddTasks.chargeOfTask.$error.required">Required field</span>
+              <span class="valid-filds" ng-show="formAddTasks.chargeOfTask.$error.maxlength">Maximum 25 characters</span>
+              <span class="valid-filds" ng-show="formAddTasks.chargeOfTask.$error.minlength">At least 3 characters</span>
+          </md-input-container>
+
+      
+          <div class="modal-footer">
+            <md-button class="md-raised md-whiteframe-1dp" data-dismiss="modal" ng-click="restFields()">Close</md-button>
+            <md-button class="md-raised md-primary md-whiteframe-1dp" type="sutmit" data-dismiss="modal" ng-disabled="formAddTasks.$invalid" ng-click="agregar()" ng-model="addTask">Save</md-button>
+          </div>
+            
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
